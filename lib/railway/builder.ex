@@ -1,16 +1,16 @@
 defmodule Builder do
+  use Rop
+
+  def error_fn(_) do
+    {:error, "I'm a bad fn!"}
+  end
 
   def start(email) do
     email
-    |> build_email()
-    |> prepare_pdf()
-    |> store_in_db()
-    |> send_notify()
-  end
-
-  def build_email(email) do
-    IO.puts "building email"
-    email
+    |> bind(BuilderEmail.build)
+    >>> bind(BuilderPdf.build)
+    #>>> (error_fn)
+    >>> bind(BuilderPdf.build_again)
   end
 
   def prepare_pdf(email) do
