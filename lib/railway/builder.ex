@@ -9,6 +9,19 @@ defmodule Builder do
     raise "Esto no debió ocurrir!!"
   end
 
+  def msg( state ) do
+    IO.puts " Terminamos !!! "
+    IO.puts "estado final: "
+    validate_final_state.(state)
+  end
+
+  def validate_final_state do
+    fn
+      {:ok, _body} -> IO.puts " Ciclo terminado [DONE] "
+      {:error, _body} -> IO.puts " Ciclo inconcluso [DONE] "
+  end
+  end
+
   def start(email) do
     email
     |> bind(BuilderEmail.build)
@@ -19,21 +32,7 @@ defmodule Builder do
     >>> bind(BuilderPdf.build_again)
     >>> try_catch(raising_fn)
     >>> bind(BuilderPdf.build_again)
-  end
-
-  def prepare_pdf(email) do
-    IO.puts "prepare pdf"
-    email
-  end
-
-  def store_in_db(email) do
-    IO.puts "store in db"
-    email
-  end
-
-  def send_notify(email) do
-    IO.puts "send notify"
-    email
+    |> msg()
   end
 
 end
