@@ -13,7 +13,9 @@ defmodule Builder do
     email
     |> bind(BuilderEmail.build)
     >>> bind(BuilderPdf.build)
-    >>> (error_fn)
+    #>>> (error_fn)
+    >>> bind(BuilderPdf.build_again)
+    >>> tee(BuilderNotify.notify)
     >>> bind(BuilderPdf.build_again)
     >>> try_catch(raising_fn)
     >>> bind(BuilderPdf.build_again)

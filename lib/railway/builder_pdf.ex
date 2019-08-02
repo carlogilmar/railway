@@ -1,11 +1,17 @@
 defmodule BuilderPdf do
 
   def build(email_body) do
-    "this is the pdf body, and the email was #{email_body}"
+    body = "#{email_body} \n Pdf Status [built]"
+    IO.puts "---"
+    IO.puts body
+    body
   end
 
   def build_again(pdf) do
-    "this is the pdf backup, with this content: #{pdf}"
+    body = "#{pdf} \n Pdf Status [Rebuilt]"
+    IO.puts "---"
+    IO.puts body
+    body
   end
 
 end
