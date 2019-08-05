@@ -9,9 +9,9 @@ defmodule App do
     raise "Esto no debió ocurrir!!"
   end
 
-  def fun1(_params), do: :fun1
-  def fun2(_params), do: :fun2
-  def fun3(_params), do: :fun3
+  def fun1(_params), do: {:ok, :fun1}
+  def fun2(_params), do: {:ok, :fun2}
+  def fun3(_params), do: {:ok, :fun3}
 
   def start() do
     "carlogilmar"
