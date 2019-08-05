@@ -9,7 +9,7 @@ defmodule App do
     raise "Esto no debió ocurrir!!"
   end
 
-  def fun1(_params), do: {:ok, :fun1}
+  def fun1(_params), do: {:fun1}
   def fun2(_params), do: {:ok, {:fun2, %{msg: "que onda"}}}
   def fun3(params) do
     IO.puts "fun 3 "
@@ -29,6 +29,12 @@ defmodule App do
     #>>> error_fn
       >>> tee(fun4())
       >>> fun3()
+  end
+
+  def play() do
+    "carlo"
+    |> fun1
+    >>> tee(fun4())
   end
 
 end
