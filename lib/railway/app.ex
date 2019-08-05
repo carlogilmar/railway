@@ -10,14 +10,24 @@ defmodule App do
   end
 
   def fun1(_params), do: {:ok, :fun1}
-  def fun2(_params), do: {:ok, {:fun2, []}}
-  def fun3(_params), do: {:ok, :fun3}
+  def fun2(_params), do: {:ok, {:fun2, %{msg: "que onda"}}}
+  def fun3(params) do
+    IO.puts "fun 3 "
+    IO.inspect params
+    {:ok, :fun3}
+  end
+
+  def fun4(params) do
+    IO.inspect params
+    IO.puts "hiii"
+  end
 
   def start() do
     "carlogilmar"
       |> fun1
       >>> fun2()
     #>>> error_fn
+      >>> tee(fun4())
       >>> fun3()
   end
 
