@@ -15,10 +15,10 @@ defmodule App do
 
   def start() do
     "carlogilmar"
-      |> bind(fun1)
-      >>> bind(fun2())
-      >>> (error_fn)
-      >>> bind(fun3())
+      |> fun1
+      >>> fun2()
+      >>> error_fn
+      >>> fun3()
   end
 
 end
