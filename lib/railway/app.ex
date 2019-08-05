@@ -1,4 +1,4 @@
-defmodule Builder do
+defmodule App do
   use Rop
 
   def error_fn(_) do
@@ -9,30 +9,16 @@ defmodule Builder do
     raise "Esto no debió ocurrir!!"
   end
 
-  def msg( state ) do
-    IO.puts " Terminamos !!! "
-    IO.puts "estado final: "
-    validate_final_state.(state)
-  end
+  def fun1(_params), do: :fun1
+  def fun2(_params), do: :fun2
+  def fun3(_params), do: :fun3
 
-  def validate_final_state do
-    fn
-      {:ok, _body} -> IO.puts " Ciclo terminado [DONE] "
-      {:error, _body} -> IO.puts " Ciclo inconcluso [DONE] "
-  end
-  end
-
-  def start(email) do
-    email
-    |> bind(BuilderEmail.build)
-    >>> bind(BuilderPdf.build)
-    #>>> (error_fn)
-    >>> bind(BuilderPdf.build_again)
-    >>> tee(BuilderNotify.notify)
-    >>> bind(BuilderPdf.build_again)
-    >>> try_catch(raising_fn)
-    >>> bind(BuilderPdf.build_again)
-    |> msg()
+  def start() do
+    "carlogilmar"
+      |> bind(fun1)
+      >>> bind(fun2())
+      >>> (error_fn)
+      >>> bind(fun3())
   end
 
 end
