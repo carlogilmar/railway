@@ -10,14 +10,14 @@ defmodule App do
   end
 
   def fun1(_params), do: {:ok, :fun1}
-  def fun2(_params), do: {:ok, :fun2}
+  def fun2(_params), do: {:ok, {:fun2, []}}
   def fun3(_params), do: {:ok, :fun3}
 
   def start() do
     "carlogilmar"
       |> fun1
       >>> fun2()
-      >>> error_fn
+    #>>> error_fn
       >>> fun3()
   end
 
