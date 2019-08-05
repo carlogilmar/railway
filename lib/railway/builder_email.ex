@@ -1,7 +1,8 @@
 defmodule BuilderEmail do
 
   def build(email) do
-    " Email to: #{email} \n "
+    body = " Email to: #{email} \n "
+    {:ok, body}
   end
 
 end
